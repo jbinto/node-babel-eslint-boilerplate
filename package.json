@@ -1,0 +1,35 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "example",
+  "main": "build/example.js",
+  "scripts": {
+    "test": "nyc --reporter=html --reporter=lcov --reporter=text npm run test:nocover",
+    "test:nocover": "mocha --full-trace -R nyan --compilers js:babel-core/register test/example.test.js",
+    "build": "babel src/example.js --out-file build/example.js",
+    "prepublish": "npm build",
+    "lint": "eslint src/ test/ || true",
+    "lint:failfast": "eslint "
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "author": "Jesse Buchanan",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb-base": "^7.1.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-import": "^1.15.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2",
+    "nyc": "^8.3.0"
+  },
+}
